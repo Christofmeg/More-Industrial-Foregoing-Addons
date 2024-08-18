@@ -3,12 +3,12 @@ package com.christofmeg.mifa.client;
 import com.buuz135.industrial.utils.Reference;
 import com.christofmeg.mifa.CommonConstants;
 import com.christofmeg.mifa.common.registry.ItemRegistry;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
 
-    public ModLanguageProvider(PackOutput output, String locale) {
+    public ModLanguageProvider(DataGenerator output, String locale) {
         super(output, CommonConstants.MOD_ID, locale);
     }
 

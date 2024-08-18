@@ -8,8 +8,7 @@ import com.hrznstudio.titanium.api.IRecipeProvider;
 import com.hrznstudio.titanium.recipe.generator.TitaniumRecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -73,11 +72,9 @@ public class ModRecipeProvider extends TitaniumRecipeProvider {
         ((IRecipeProvider) ItemRegistry.SPEED_ADDON_3.get()).registerRecipe(consumer);
         ((IRecipeProvider) ItemRegistry.SPEED_ADDON_4.get()).registerRecipe(consumer);
 
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+        UpgradeRecipeBuilder.smithing(
                         Ingredient.of(IndustrialTags.Items.GEAR_DIAMOND),
                         Ingredient.of(Tags.Items.INGOTS_NETHERITE),
-                        RecipeCategory.MISC,
                         ItemRegistry.NETHERITE_GEAR.get())
                 .unlocks("has_netherite_ingot",has(Tags.Items.INGOTS_NETHERITE))
                 .save(consumer, getItemName(ItemRegistry.NETHERITE_GEAR.get()) + "_smithing");

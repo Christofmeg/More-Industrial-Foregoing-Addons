@@ -25,7 +25,7 @@ license = "${license}"
 [[dependencies.${mod_id}]]
     modId = "industrialforegoing"
     mandatory = true
-    versionRange = "[3.5,)"
+    versionRange = "[3.3,)"
     ordering = "NONE"
     side = "BOTH"
 [modproperties.${mod_id}]

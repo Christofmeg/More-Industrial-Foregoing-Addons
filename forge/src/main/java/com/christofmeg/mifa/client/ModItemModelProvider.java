@@ -2,14 +2,14 @@ package com.christofmeg.mifa.client;
 
 import com.christofmeg.mifa.common.registry.ItemRegistry;
 import com.christofmeg.mifa.CommonConstants;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
-    public ModItemModelProvider(PackOutput generator, ExistingFileHelper existingFileHelper) {
+    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, CommonConstants.MOD_ID, existingFileHelper);
     }
 

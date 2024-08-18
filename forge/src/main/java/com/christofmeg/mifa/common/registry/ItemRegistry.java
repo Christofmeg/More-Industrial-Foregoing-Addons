@@ -4,14 +4,13 @@ import com.buuz135.industrial.item.RecipelessCustomItem;
 import com.buuz135.industrial.module.IModule;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
+import com.christofmeg.mifa.CommonConstants;
 import com.christofmeg.mifa.common.item.ModEfficiencyAddonItem;
 import com.christofmeg.mifa.common.item.ModProcessingAddonItem;
 import com.christofmeg.mifa.common.item.ModSpeedAddonItem;
-import com.christofmeg.mifa.CommonConstants;
 import com.hrznstudio.titanium.module.DeferredRegistryHelper;
 import com.hrznstudio.titanium.tab.TitaniumTab;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,7 +24,7 @@ import java.util.function.Consumer;
 
 public class ItemRegistry implements IModule {
 
-    public static TitaniumTab TAB_ADDONS = new TitaniumTab(new ResourceLocation(CommonConstants.MOD_ID, "addons"));
+    public static TitaniumTab TAB_ADDONS = new TitaniumTab(CommonConstants.MOD_ID + "_" + "addons", () -> new ItemStack(ItemRegistry.SPEED_ADDON_3.get()));
 
     public static RegistryObject<Item> EFFICIENCY_ADDON_3;
     public static RegistryObject<Item> EFFICIENCY_ADDON_4;

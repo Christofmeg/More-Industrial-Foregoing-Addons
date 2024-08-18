@@ -28,6 +28,5 @@
     "recipes": [
       "minecraft:netherite_gear_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
