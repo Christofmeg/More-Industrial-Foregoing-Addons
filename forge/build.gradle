@@ -105,12 +105,11 @@ dependencies {
 //    runtimeOnly fg.deobf("maven.modrinth:tag-tooltips:a0H0FGkF")
 //    runtimeOnly fg.deobf("curse.maven:item-nbt-viewer-514135:4578522")
 
-
-    runtimeOnly fg.deobf("curse.maven:configured-457570:4462837")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:4462832") // https://www.curseforge.com/minecraft/mc-mods/configured
 	
-	implementation fg.deobf("maven.modrinth:industrial-foregoing:fZMC747p") // https://modrinth.com/mod/industrial-foregoing/versions
-    implementation fg.deobf("maven.modrinth:titanium:C671K5PG") // https://modrinth.com/mod/titanium/versions
-    implementation fg.deobf("maven.modrinth:patchouli:62ztr7HA") // https://modrinth.com/mod/patchouli/versions
+	implementation fg.deobf("maven.modrinth:industrial-foregoing:xrK5TYz5") // https://modrinth.com/mod/industrial-foregoing/versions
+    implementation fg.deobf("maven.modrinth:titanium:f8zZ2kK5") // https://modrinth.com/mod/titanium/versions
+    implementation fg.deobf("maven.modrinth:patchouli:VReLlKMv") // https://modrinth.com/mod/patchouli/versions
 
 }
 

@@ -1,5 +1,4 @@
 {
-  "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
       "tag": "forge:dusts/redstone"
@@ -27,10 +26,11 @@
     }
   ],
   "inputFluid": "{Amount:1000,FluidName:\"industrialforegoing:pink_slime\"}",
+  "processingTime": 200,
   "output": {
-    "count": 1,
     "item": "mifa:speed_addon_3",
+    "count": 1,
     "nbt": "{TitaniumAugment:{Speed:4.0f}}"
   },
-  "processingTime": 200
+  "type": "industrialforegoing:dissolution_chamber"
 }

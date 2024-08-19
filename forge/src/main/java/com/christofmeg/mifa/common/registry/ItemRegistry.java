@@ -40,7 +40,7 @@ public class ItemRegistry implements IModule {
     @Override
     public void generateFeatures(DeferredRegistryHelper helper) {
 
-        EFFICIENCY_ADDON_3 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "efficiency_addon_3", () -> new ModEfficiencyAddonItem(3, TAB_ADDONS) {
+        EFFICIENCY_ADDON_3 = helper.registerGeneric(Item.class, "efficiency_addon_3", () -> new ModEfficiencyAddonItem(3, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -57,7 +57,7 @@ public class ItemRegistry implements IModule {
                         new ItemStack(this), FluidStack.EMPTY);
             }
         });
-        EFFICIENCY_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "efficiency_addon_4", () -> new ModEfficiencyAddonItem(4, TAB_ADDONS) {
+        EFFICIENCY_ADDON_4 = helper.registerGeneric(Item.class, "efficiency_addon_4", () -> new ModEfficiencyAddonItem(4, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -65,7 +65,7 @@ public class ItemRegistry implements IModule {
                         new Ingredient.TagValue(Tags.Items.DUSTS_REDSTONE),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        new Ingredient.ItemValue(new ItemStack(Items.ECHO_SHARD)),
+                        new Ingredient.TagValue(TagRegistry.Items.GEARS_NETHERITE),
                         new Ingredient.ItemValue(new ItemStack(EFFICIENCY_ADDON_3.get())),
                         new Ingredient.TagValue(Tags.Items.RODS_BLAZE),
                         new Ingredient.TagValue(Tags.Items.RODS_BLAZE)
@@ -75,7 +75,7 @@ public class ItemRegistry implements IModule {
             }
         });
 
-        PROCESSING_ADDON_3 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "processing_addon_3", () -> new ModProcessingAddonItem(3, TAB_ADDONS) {
+        PROCESSING_ADDON_3 = helper.registerGeneric(Item.class, "processing_addon_3", () -> new ModProcessingAddonItem(3, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -92,7 +92,7 @@ public class ItemRegistry implements IModule {
                         new ItemStack(this), FluidStack.EMPTY);
             }
         });
-        PROCESSING_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "processing_addon_4", () -> new ModProcessingAddonItem(4, TAB_ADDONS) {
+        PROCESSING_ADDON_4 = helper.registerGeneric(Item.class, "processing_addon_4", () -> new ModProcessingAddonItem(4, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -100,7 +100,7 @@ public class ItemRegistry implements IModule {
                         new Ingredient.TagValue(Tags.Items.DUSTS_REDSTONE),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        new Ingredient.ItemValue(new ItemStack(Items.ECHO_SHARD)),
+                        new Ingredient.TagValue(TagRegistry.Items.GEARS_NETHERITE),
                         new Ingredient.ItemValue(new ItemStack(PROCESSING_ADDON_3.get())),
                         new Ingredient.ItemValue(Items.FURNACE.getDefaultInstance()),
                         new Ingredient.ItemValue(Items.CRAFTING_TABLE.getDefaultInstance())
@@ -110,7 +110,7 @@ public class ItemRegistry implements IModule {
             }
         });
 
-        SPEED_ADDON_3 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_3", () -> new ModSpeedAddonItem(3, TAB_ADDONS) {
+        SPEED_ADDON_3 = helper.registerGeneric(Item.class, "speed_addon_3", () -> new ModSpeedAddonItem(3, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -127,7 +127,7 @@ public class ItemRegistry implements IModule {
                         new ItemStack(this), FluidStack.EMPTY);
             }
         });
-        SPEED_ADDON_4 = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "speed_addon_4", () -> new ModSpeedAddonItem(4, TAB_ADDONS) {
+        SPEED_ADDON_4 = helper.registerGeneric(Item.class, "speed_addon_4", () -> new ModSpeedAddonItem(4, TAB_ADDONS) {
             @Override
             public void registerRecipe(Consumer<FinishedRecipe> consumer) {
                 new DissolutionChamberRecipe(ForgeRegistries.ITEMS.getKey(this), new Ingredient.Value[] {
@@ -135,7 +135,7 @@ public class ItemRegistry implements IModule {
                         new Ingredient.TagValue(Tags.Items.DUSTS_REDSTONE),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
                         new Ingredient.TagValue(Tags.Items.GLASS_PANES_COLORLESS),
-                        new Ingredient.ItemValue(new ItemStack(Items.ECHO_SHARD)),
+                        new Ingredient.TagValue(TagRegistry.Items.GEARS_NETHERITE),
                         new Ingredient.ItemValue(new ItemStack(SPEED_ADDON_3.get())),
                         new Ingredient.ItemValue(new ItemStack(Items.SUGAR)),
                         new Ingredient.ItemValue(new ItemStack(Items.SUGAR))
@@ -145,7 +145,7 @@ public class ItemRegistry implements IModule {
             }
         });
 
-        NETHERITE_GEAR = helper.registerGeneric(ForgeRegistries.ITEMS.getRegistryKey(), "netherite_gear", () -> new RecipelessCustomItem("netherite_gear", TAB_ADDONS) {
+        NETHERITE_GEAR = helper.registerGeneric(Item.class, "netherite_gear", () -> new RecipelessCustomItem("netherite_gear", TAB_ADDONS) {
         });
     }
 }
