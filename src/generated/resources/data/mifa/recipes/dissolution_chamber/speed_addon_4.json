@@ -1,0 +1,36 @@
+{
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/netherite"
+    },
+    {
+      "item": "mifa:speed_addon_3"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:1000}",
+  "processingTime": 200,
+  "output": {
+    "item": "mifa:speed_addon_4",
+    "count": 1,
+    "nbt": "{TitaniumAugment:{Speed:5.0f}}"
+  },
+  "type": "industrialforegoing:dissolution_chamber"
+}

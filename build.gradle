@@ -1,85 +1,172 @@
-plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT' apply(false)
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)' apply(false)
-    id 'org.spongepowered.gradle.vanilla' version '0.2.1-SNAPSHOT' apply(false)
-    id("org.spongepowered.mixin") version "0.7-SNAPSHOT" apply(false)
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+    }
 }
 
-subprojects {
-    apply plugin: 'java'
+plugins {
+    id 'idea'
+    id 'net.darkhax.curseforgegradle' version '1.1.15'
+    id 'com.modrinth.minotaur' version '2.+'
+	id 'java'
+}
 
-    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-        
-    jar {
-        manifest {
-            attributes([
-                'Specification-Title'     : mod_name,
-                'Specification-Vendor'    : mod_author,
-                'Specification-Version'   : project.jar.archiveVersion,
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_author,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Timestamp'               : System.currentTimeMillis(),
-                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-                'Built-On-Minecraft'      : minecraft_version
-            ])
-        }
-    }
+apply plugin: 'net.minecraftforge.gradle'
 
-    repositories {
-        mavenCentral()
-        maven {
-            name = 'Sponge / Mixin'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-        }
-        maven {
-            name = 'BlameJared Maven (JEI / CraftTweaker / Bookshelf)'
-            url = 'https://maven.blamejared.com'
-        }
-        maven {
-            url "https://www.cursemaven.com"
-            content {
-                includeGroup "curse.maven"
+archivesBaseName = "${mod_id}-forge-${forge_supported_versions}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+minecraft {
+    mappings channel: 'official', version: forge_minecraft_version
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Client'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                modClientRun {
+                    source sourceSets.main
+                }
             }
         }
-        maven {
-            name = "Modrinth"
-            url = "https://api.modrinth.com/maven"
-            content {
-                includeGroup "maven.modrinth"
 
+        server {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Server'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                modServerRun {
+                    source sourceSets.main
+                }
+            }
+        }
+		
+		data {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Data'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            args '--mod', mod_id, '--all',
+                    '--output', file('src/generated/resources/'),
+                    '--existing', file('src/main/resources/'),
+                    '--existing', file('src/generated/resources/')
+            mods {
+                modDataRun {
+                    source sourceSets.main
+                }
             }
         }
     }
+}
 
-    tasks.withType(JavaCompile).configureEach {
-        it.options.encoding = 'UTF-8'
-        it.options.getRelease().set(17)
-    }
-
-    processResources {
-        def expandProps = [
-                "version": version,
-                "group": project.group, //Else we target the task's group.
-                "minecraft_version": minecraft_version,
-                "minecraft_version_range": minecraft_version_range,
-                "forge_version": forge_version,
-                "forge_version_range": forge_version_range,
-                "forge_loader_version_range": forge_loader_version_range,
-                "mod_name": mod_name,
-                "mod_author": mod_author,
-                "mod_id": mod_id,
-                "license": license,
-                "description": project.description,
-                "catalogueItemIcon": catalogueItemIcon
-        ]
-
-        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
-            expand expandProps
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
         }
-        inputs.properties(expandProps)
-        exclude '.cache'
+        resources {
+            srcDirs = ['src/main/resources', 'src/generated/resources']
+        }
     }
+}
 
+repositories {
+	mavenCentral()
+	maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+		content {
+			includeGroup "maven.modrinth"
+
+		}
+	}
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${forge_minecraft_version}-${forge_version}"
+
+    runtimeOnly fg.deobf("curse.maven:catalogue-459701:${catalogue_version}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:${jei_version}")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:${configured}")
+	implementation fg.deobf("maven.modrinth:industrial-foregoing:${industrial_foregoing}")
+    implementation fg.deobf("maven.modrinth:titanium:${titanium}")
+    implementation fg.deobf("maven.modrinth:patchouli:${patchouli}")
+	
+}
+
+processResources {
+	def expandProps = [
+			"version": version,
+			"group": project.group, //Else we target the task's group.
+			"minecraft_version": minecraft_version,
+			"minecraft_version_range": minecraft_version_range,
+			"forge_version": forge_version,
+			"forge_version_range": forge_version_range,
+			"forge_loader_version_range": forge_loader_version_range,
+			"mod_name": mod_name,
+			"mod_author": mod_author,
+			"mod_id": mod_id,
+			"license": license,
+			"description": project.description,
+			"catalogueItemIcon": catalogueItemIcon
+	]
+
+	filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
+		expand expandProps
+	}
+	inputs.properties(expandProps)
+	exclude '.cache'
+}
+
+jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = 'UTF-8'
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    apiToken = file('../API Tokens/mifa.md')
+    def projectId = "${cf_id}".toString()
+    def mainFile = upload(projectId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
+    mainFile.changelogType = 'markdown'
+    mainFile.changelog = file('changelog.md')
+    mainFile.addGameVersion('Client', 'Server')
+    mainFile.releaseType = "${release_type}"
+    "${forge_release_versions}".split(',').each {
+        mainFile.addGameVersion("${it}")
+    }
+    mainFile.addRequirement("industrial-foregoing")
+}
+
+modrinth {
+    token = file('../API Tokens/modrinth.md').text
+    projectId = "${modrinth_id}"
+    versionName = getArchivesBaseName() + "-" + getVersion()
+    versionType = "${release_type}"
+    changelog = file('changelog.md').text
+    uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
+    gameVersions = "${forge_release_versions}".split(",") as List<String>
+    dependencies {
+        required.project "industrial-foregoing"
+    }
 }

@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "${forge_loader_version_range}"
+issueTrackerURL="https://github.com/Christofmeg/MoreIndustrialForegoingAddons/issues"
+license = "${license}"
+[[mods]]
+    modId = "${mod_id}"
+    version = "${version}"
+    displayName = "${mod_name}"
+    displayURL="https://github.com/Christofmeg/MoreIndustrialForegoingAddons"
+    logoFile="icon.png"
+    authors = "${mod_author}"
+    description = '''${description}'''
+[[dependencies.${mod_id}]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "${forge_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.${mod_id}]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "${minecraft_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.${mod_id}]]
+    modId = "industrialforegoing"
+    mandatory = true
+    versionRange = "[3.2,)"
+    ordering = "NONE"
+    side = "BOTH"
+[modproperties.${mod_id}]
+    catalogueItemIcon="${catalogueItemIcon}"

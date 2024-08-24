@@ -1,0 +1,36 @@
+{
+  "input": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:glass_panes/colorless"
+    },
+    {
+      "tag": "forge:gears/netherite"
+    },
+    {
+      "item": "mifa:efficiency_addon_3"
+    },
+    {
+      "tag": "forge:rods/blaze"
+    },
+    {
+      "tag": "forge:rods/blaze"
+    }
+  ],
+  "inputFluid": "{FluidName:\"industrialforegoing:ether_gas\",Amount:1000}",
+  "processingTime": 200,
+  "output": {
+    "item": "mifa:efficiency_addon_4",
+    "count": 1,
+    "nbt": "{TitaniumAugment:{Efficiency:0.6f}}"
+  },
+  "type": "industrialforegoing:dissolution_chamber"
+}
