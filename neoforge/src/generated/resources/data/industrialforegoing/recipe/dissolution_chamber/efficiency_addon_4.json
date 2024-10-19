@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "mifa:efficiency_addon_4"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "item": "mifa:efficiency_addon_3"
+    },
+    {
+      "tag": "c:rods/blaze"
+    },
+    {
+      "tag": "c:rods/blaze"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 1,
+    "id": "mifa:efficiency_addon_4"
+  },
+  "processingTime": 200
+}

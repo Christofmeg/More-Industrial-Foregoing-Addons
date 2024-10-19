@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "mifa:speed_addon_4"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "item": "minecraft:echo_shard"
+    },
+    {
+      "item": "mifa:speed_addon_3"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:ether_gas"
+  },
+  "output": {
+    "count": 1,
+    "id": "mifa:speed_addon_4"
+  },
+  "processingTime": 200
+}

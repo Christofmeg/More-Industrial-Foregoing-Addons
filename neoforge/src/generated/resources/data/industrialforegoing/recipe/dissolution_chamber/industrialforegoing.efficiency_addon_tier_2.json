@@ -1,0 +1,44 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "industrialforegoing:efficiency_addon_tier_2"
+    }
+  ],
+  "type": "industrialforegoing:dissolution_chamber",
+  "input": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:gears/diamond"
+    },
+    {
+      "item": "industrialforegoing:efficiency_addon_tier_1"
+    },
+    {
+      "tag": "c:rods/blaze"
+    },
+    {
+      "tag": "c:rods/blaze"
+    }
+  ],
+  "inputFluid": {
+    "amount": 1000,
+    "id": "industrialforegoing:latex"
+  },
+  "output": {
+    "count": 1,
+    "id": "industrialforegoing:efficiency_addon_tier_2"
+  },
+  "processingTime": 200
+}
