@@ -9,6 +9,7 @@ public class TagRegistry {
 
     public static class Items {
         public static final TagKey<Item> GEARS_NETHERITE = TagUtil.getItemTag(new ResourceLocation("forge:gears/netherite"));
+        public static final TagKey<Item> GEARS = TagUtil.getItemTag(new ResourceLocation("forge:gears"));
     }
 
 }
