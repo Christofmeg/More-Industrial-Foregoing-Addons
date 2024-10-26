@@ -17,9 +17,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup." + CommonConstants.MOD_ID + "_" + "addons", "More Industrial Foregoing Addons");
         add("itemGroup." + Reference.MOD_ID + "_" + "addons", "More Industrial Foregoing Addons");
 
-        add("item.mifa.cooldown_amount", "Cooldown Amount");
-        add("item.mifa.cooldown_time", "Cooldown Time");
-
         addItem(ItemRegistry.NETHERITE_GEAR, "Netherite Gear");
     }
 

@@ -8,7 +8,8 @@ import net.minecraft.world.item.Item;
 public class TagRegistry {
 
     public static class Items {
-        public static final TagKey<Item> GEARS_NETHERITE = TagUtil.getItemTag(ResourceLocation.fromNamespaceAndPath("forge", "gears/netherite"));
+        public static final TagKey<Item> GEARS_NETHERITE = TagUtil.getItemTag(ResourceLocation.fromNamespaceAndPath("c", "gears/netherite"));
+        public static final TagKey<Item> GEARS = TagUtil.getItemTag(ResourceLocation.fromNamespaceAndPath("c", "gears"));
     }
 
 }
