@@ -24,8 +24,8 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 
-src/generated/resources/.cache/
-src/test/
+/src/generated/resources/.cache/
+/src/test/
 /Forge/src/generated/resources/.cache/
 /Forge/src/test/
 /NeoForge/src/generated/resources/.cache/
