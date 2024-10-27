@@ -27,4 +27,5 @@ forge*changelog.txt
 /Forge/src/generated/resources/.cache/
 /Forge/src/test/
 /NeoForge/src/generated/resources/.cache/
+/NeoForge/runs
 
