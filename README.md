@@ -1,2 +1,2 @@
 # More Industrial Foregoing Addons <a href="https://www.curseforge.com/minecraft/mc-mods/mifa"><img src="http://cf.way2muchnoise.eu/versions/1086142.svg" style="max-width:100%;"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/mifa"><img src="https://cf.way2muchnoise.eu/1086142.svg" style="max-width:100%;"></a> <a href="https://modrinth.com/mod/mifa"><img src="https://img.shields.io/modrinth/dt/Ig6QciUH" style="max-width:100%;"></a>
-Adds a tooltip along with higher tiers of efficiency, processing and speed addons.
+This mod adds additional efficiency, processing and speed addons to Industrial Foregoing.
